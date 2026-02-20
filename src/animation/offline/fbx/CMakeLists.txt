@@ -13,9 +13,14 @@ add_library(ozz_animation_fbx
   
 target_compile_definitions(ozz_animation_fbx PRIVATE  $<$<BOOL:${BUILD_SHARED_LIBS}>:OZZ_BUILD_ANIMATIONFBX_LIB>)
 
+target_include_directories(ozz_animation_fbx PRIVATE /github_dir/ozz-animation/fbx/include /github_dir/ozz-animation/fbx/include/fbxsdk)
+
+target_include_directories(ozz_animation_fbx PUBLIC /github_dir/ozz-animation/fbx/include)
+
 target_link_libraries(ozz_animation_fbx
   ozz_animation_offline
-  fbx::sdk)
+  /usr/share/rider/plugins/cidr-debugger-plugin/bin/lldb/linux/x64/lib/libxml2.so.2
+  /github_dir/ozz-animation/fbx/lib/debug/libfbxsdk.so)
 set_target_properties(ozz_animation_fbx PROPERTIES FOLDER "ozz/tools")
 
 install(TARGETS ozz_animation_fbx DESTINATION lib)
